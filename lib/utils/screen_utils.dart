@@ -10,7 +10,7 @@ import 'package:flutter/widgets.dart';
 /// bool isTablet = Screen.diagonalInches(context) >= 7;
 /// bool isNarrow = Screen.widthInches(context) < 3.5;
 
-class Screen {
+class ScreenUtils {
   static double get _ppi => (Platform.isAndroid || Platform.isIOS) ? 150 : 96;
 
   static bool isLandscape(BuildContext context) =>
@@ -41,7 +41,7 @@ class Screen {
 }
 
 extension MediaQueryExtension on BuildContext {
-  Size get size => Screen.size(this);
-  double get height => Screen.size(this).height;
-  double get width => Screen.size(this).width;
+  Size get size => ScreenUtils.size(this);
+  double get height => ScreenUtils.size(this).height;
+  double get width => ScreenUtils.size(this).width;
 }
