@@ -6,7 +6,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  static const double _imageSize = 25.0;
+  // static const double _imageSize = 25.0;
 
   @override
   Widget build(BuildContext context) {

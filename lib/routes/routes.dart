@@ -2,6 +2,7 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart' hide Router;
 import 'package:flutter_demo/pages/home/home_page.dart';
 import 'package:flutter_demo/pages/home/webview_page.dart';
+import 'package:flutter_demo/pages/login/login_router.dart';
 import 'i_router.dart';
 import 'not_found_page.dart';
 
@@ -16,17 +17,13 @@ class Routes {
 
   static void initRoutes() {
     /// 指定路由跳转错误返回页
-    router.notFoundHandler = Handler(
-        handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+    router.notFoundHandler = Handler(handlerFunc: (BuildContext context, Map<String, List<String>> params) {
       debugPrint('未找到目标页');
       return NotFoundPage();
     });
 
     router.define(home,
-        handler: Handler(
-            handlerFunc:
-                (BuildContext context, Map<String, List<String>> params) =>
-                    Home()));
+        handler: Handler(handlerFunc: (BuildContext context, Map<String, List<String>> params) => Home()));
 
     router.define(webViewPage, handler: Handler(handlerFunc: (_, params) {
       final String title = params['title']?.first;
@@ -37,8 +34,8 @@ class Routes {
     _listRouter.clear();
 
     /// 各自路由由各自模块管理，统一在此添加初始化
+    _listRouter.add(LoginRouter());
     // _listRouter.add(ShopRouter());
-    // _listRouter.add(LoginRouter());
     // _listRouter.add(GoodsRouter());
     // _listRouter.add(OrderRouter());
     // _listRouter.add(StoreRouter());
