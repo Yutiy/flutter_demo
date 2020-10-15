@@ -1,0 +1,3 @@
+# Once you've added a Intl.message get run the commands below to update the generated arb and dart files
+flutter pub pub run intl_translation:extract_to_arb --output-dir=lib/localization/l10n lib/localization/app_localizations.dart
+flutter pub pub run intl_translation:generate_from_arb --output-dir=lib/localization/l10n --no-use-deferred-loading lib/localization/app_localizations.dart lib/localization/l10n/intl_*.arb
