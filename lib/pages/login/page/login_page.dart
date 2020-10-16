@@ -8,6 +8,7 @@ import 'package:flutter_demo/pages/login/login_router.dart';
 import 'package:flutter_demo/pages/login/widget/my_text_field.dart';
 import 'package:flutter_demo/pages/store/store_router.dart';
 import 'package:flutter_demo/routes/fluro_navigator.dart';
+import 'package:flutter_demo/routes/routes.dart';
 import 'package:flutter_demo/utils/utils.dart';
 import 'package:flutter_demo/widget/chage_notifier_mixin.dart';
 import 'package:flutter_demo/widget/my_app_bar.dart';
@@ -65,7 +66,7 @@ class _LoginPage extends State<LoginPage> with ChangeNotifierMixin<LoginPage> {
 
   void _login() {
     SpUtil.putString(Constant.phone, _nameController.text);
-    NavigatorUtils.push(context, StoreRouter.auditPage);
+    NavigatorUtils.push(context, Routes.home);
   }
 
   @override

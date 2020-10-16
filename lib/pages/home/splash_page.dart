@@ -2,9 +2,10 @@ import 'dart:async';
 
 import 'package:flustars/flustars.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/pages/login/login_router.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:rxdart/rxdart.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:flutter_demo/pages/login/login_router.dart';
 import 'package:flutter_demo/routes/fluro_navigator.dart';
 import 'package:flutter_demo/utils/image_utils.dart';
 import 'package:flutter_demo/widget/image_load.dart';
@@ -54,8 +55,7 @@ class _SplashPageState extends State<SplashPage> {
   }
 
   void _initSplash() {
-    // .delay(const Duration(milliseconds: 1500))
-    _subscription = Stream.value(1).listen((_) {
+    _subscription = Stream.value(1).delay(const Duration(milliseconds: 1500)).listen((_) {
       if (SpUtil.getBool(Constant.keyGuide, defValue: true)) {
         SpUtil.putBool(Constant.keyGuide, false);
         _initGuide();
