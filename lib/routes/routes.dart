@@ -1,15 +1,15 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart' hide Router;
 import 'package:flutter_demo/pages/goods/goods_router.dart';
-import 'package:flutter_demo/pages/home/home_page.dart';
-import 'package:flutter_demo/pages/home/webview_page.dart';
+import 'package:flutter_demo/pages/home_page.dart';
+import 'package:flutter_demo/pages/webview_page.dart';
 import 'package:flutter_demo/pages/login/login_router.dart';
 import 'package:flutter_demo/pages/order/order_router.dart';
 import 'package:flutter_demo/pages/shop/shop_router.dart';
 import 'package:flutter_demo/pages/store/store_router.dart';
 import 'package:flutter_demo/pages/statistics/statistics_router.dart';
 import 'i_router.dart';
-import 'not_found_page.dart';
+import '../pages/not_found_page.dart';
 
 // ignore: avoid_classes_with_only_static_members
 class Routes {

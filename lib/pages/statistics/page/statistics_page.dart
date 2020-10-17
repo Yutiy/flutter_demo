@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/bloc/bloc_provider.dart';
+import 'package:flutter_demo/bloc/count_bloc.dart';
 
 class StatisticsPage extends StatefulWidget {
   @override
@@ -6,26 +8,23 @@ class StatisticsPage extends StatefulWidget {
 }
 
 class _StatisticsPageState extends State<StatisticsPage> {
-  int count = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    print('statistics initState');
-  }
-
-  void add() {
-    setState(() {
-      count++;
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
+    CountBloc _bloc = BlocProvider.of<CountBloc>(context);
+
     return Scaffold(
-        body: Center(child: Text('First: $count', style: TextStyle(fontSize: 30))),
+        appBar: AppBar(
+          title: Text("CountBloc"),
+        ),
+        body: StreamBuilder<int>(
+            stream: _bloc.value,
+            initialData: 0,
+            builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
+              return Center(
+                  child: Text('You hit me: ${snapshot.data.toString()} times',
+                      style: TextStyle(fontSize: 40, fontWeight: FontWeight.w300)));
+            }),
         floatingActionButton: FloatingActionButton(
-          onPressed: add,
+          onPressed: _bloc.increment,
           child: Icon(Icons.add),
         ));
   }

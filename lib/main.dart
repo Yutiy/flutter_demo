@@ -7,10 +7,10 @@ import 'package:oktoast/oktoast.dart';
 import 'package:provider/provider.dart';
 import 'package:sp_util/sp_util.dart';
 import 'package:common_utils/common_utils.dart';
-import 'package:flutter_demo/routes/not_found_page.dart';
 import 'package:flutter_demo/routes/routes.dart';
 import 'package:flutter_demo/utils/device_utils.dart';
-import 'package:flutter_demo/pages/home/splash_page.dart';
+import 'package:flutter_demo/pages/not_found_page.dart';
+import 'package:flutter_demo/pages/splash_page.dart';
 
 Future<void> main() async {
   // debugProfileBuildsEnabled = true;
