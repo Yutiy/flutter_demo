@@ -5,7 +5,7 @@ import '../common/styles/gaps.dart';
 import 'image_load.dart';
 
 class ClickItem extends StatelessWidget {
-  ClickItem(
+  const ClickItem(
       {Key key,
       this.onTap,
       @required this.title,

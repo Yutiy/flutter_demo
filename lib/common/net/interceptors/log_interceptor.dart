@@ -13,11 +13,8 @@ class LogInterceptor extends Interceptor {
     if (options.queryParameters.isEmpty) {
       LogUtils.d('RequestUrl: ' + options.baseUrl + options.path);
     } else {
-      LogUtils.d('RequestUrl: ' +
-          options.baseUrl +
-          options.path +
-          '?' +
-          Transformer.urlEncodeMap(options.queryParameters));
+      LogUtils.d(
+          'RequestUrl: ' + options.baseUrl + options.path + '?' + Transformer.urlEncodeMap(options.queryParameters));
     }
     LogUtils.d('RequestMethod: ' + options.method);
     LogUtils.d('RequestHeaders:' + options.headers.toString());

@@ -2,6 +2,7 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart' hide Router;
 import 'package:flutter_demo/pages/goods/goods_router.dart';
 import 'package:flutter_demo/pages/home_page.dart';
+import 'package:flutter_demo/pages/setting/setting_router.dart';
 import 'package:flutter_demo/pages/webview_page.dart';
 import 'package:flutter_demo/pages/login/login_router.dart';
 import 'package:flutter_demo/pages/order/order_router.dart';
@@ -45,8 +46,8 @@ class Routes {
     _listRouter.add(ShopRouter());
     _listRouter.add(GoodsRouter());
     _listRouter.add(StatisticsRouter());
+    _listRouter.add(SettingRouter());
     // _listRouter.add(AccountRouter());
-    // _listRouter.add(SettingRouter());
 
     /// 初始化路由
     _listRouter.forEach((routerProvider) {

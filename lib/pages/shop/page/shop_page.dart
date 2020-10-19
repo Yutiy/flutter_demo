@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/common/styles/gaps.dart';
 import 'package:flutter_demo/common/styles/styles.dart';
+import 'package:flutter_demo/pages/setting/setting_router.dart';
 import 'package:flutter_demo/routes/fluro_navigator.dart';
 import 'package:flutter_demo/utils/image_utils.dart';
 import 'package:flutter_demo/utils/theme_utils.dart';
@@ -59,7 +60,7 @@ class _ShopPageState extends State<ShopPage> with AutomaticKeepAliveClientMixin<
             IconButton(
               tooltip: '设置',
               onPressed: () {
-                // NavigatorUtils.push(context, SettingRouter.settingPage);
+                NavigatorUtils.push(context, SettingRouter.settingPage);
               },
               icon: LoadAssetImage(
                 'shop/setting',

@@ -14,8 +14,7 @@ class TokenInterceptor extends Interceptor {
     final Map<String, String> params = <String, String>{};
     params['refresh_token'] = SpUtil.getString(Constant.refreshToken);
     try {
-      final Response response =
-          await _dio.post<dynamic>('lgn/refreshToken', data: params);
+      final Response response = await _dio.post<dynamic>('lgn/refreshToken', data: params);
       if (response.statusCode == ExceptionHandle.success) {
         return json.decode(response.data.toString())['access_token'] as String;
       }
@@ -39,8 +38,7 @@ class TokenInterceptor extends Interceptor {
   @override
   Future<Object> onResponse(Response response) async {
     //401代表token过期
-    if (response != null &&
-        response.statusCode == ExceptionHandle.unauthorized) {
+    if (response != null && response.statusCode == ExceptionHandle.unauthorized) {
       LogUtils.d('-----------自动刷新Token------------');
       _dio.interceptors.requestLock.lock();
       final String accessToken = await getToken(); // 获取新的accessToken

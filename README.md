@@ -83,38 +83,6 @@ iOS需要自行下载代码运行。
 
 - 本项目使用FlutterJsonBeanFactory插件来生成Bean。FlutterJsonBeanFactory插件使用可以查看[这篇文章](https://www.jianshu.com/p/14cbcbaa74b7)。
 
-## 心得总结（推荐阅读）
-
-- [Flutter开发中的一些Tips(一)](https://weilu.blog.csdn.net/article/details/90546727)
-
-- [Flutter开发中的一些Tips(二)](https://weilu.blog.csdn.net/article/details/94849020)
-
-- [Flutter开发中的一些Tips(三)](https://weilu.blog.csdn.net/article/details/100108123)
-
-- [Flutter适配深色模式（DarkMode）](https://weilu.blog.csdn.net/article/details/102531559)
-
-- [说说Flutter中的RepaintBoundary](https://weilu.blog.csdn.net/article/details/103452637)
-
-- [说说Flutter中的Semantics](https://weilu.blog.csdn.net/article/details/103823259)
-
-- [说说Flutter中最熟悉的陌生人 —— Key](https://weilu.blog.csdn.net/article/details/104745624)
-
-- [说说Flutter中的无名英雄 —— Focus](https://weilu.blog.csdn.net/article/details/107132031)
-
-- [Flutter性能优化实践 —— UI篇](https://weilu.blog.csdn.net/article/details/106046434)
-
-- [玩玩Flutter的拖拽——实现一款万能遥控器](https://weilu.blog.csdn.net/article/details/105237677)
-
-- [玩玩Flutter Web —— 实现高德地图插件](https://weilu.blog.csdn.net/article/details/106465792)
-
-- [Flutter动画曲线Curves 效果一览](https://weilu.blog.csdn.net/article/details/95632571)
-
-- [Flutter状态管理之Riverpod](https://weilu.blog.csdn.net/article/details/108352306)
-
-- [【译】正确操作Dart中的字符串](https://weilu.blog.csdn.net/article/details/107857569)
-
-- [【译】学习Flutter中新的Navigator和Router系统](https://weilu.blog.csdn.net/article/details/108902282)
-    
 ## 使用到的三方库
 
 | 库                         | 功能             |
