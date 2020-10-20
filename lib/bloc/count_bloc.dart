@@ -1,23 +1,8 @@
-import 'dart:async';
+import 'package:bloc/bloc.dart';
 
-import 'bloc_provider.dart';
+class CounterCubit extends Cubit<int> {
+  CounterCubit() : super(0);
 
-class CountBloc implements BlocBase {
-  int _count;
-  StreamController<int> _countController;
-
-  CountBloc() {
-    _count = 0;
-    _countController = StreamController<int>();
-  }
-
-  Stream<int> get value => _countController.stream;
-
-  void increment() {
-    _countController.sink.add(++_count);
-  }
-
-  void dispose() {
-    _countController.close();
-  }
+  void increment() => emit(state + 1);
+  void decrement() => emit(state - 1);
 }

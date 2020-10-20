@@ -1,5 +1,9 @@
+import 'package:dio/dio.dart';
+import 'package:dio_cookie_manager/dio_cookie_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_demo/common/config.dart';
+import 'package:flutter_demo/common/net/net.dart';
 import 'package:flutter_demo/common/provider/theme_provider.dart';
 import 'package:flutter_demo/localization/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -35,7 +39,25 @@ class MyApp extends StatelessWidget {
 
   MyApp({this.home, this.theme}) {
     LogUtil.init();
+    initDio();
     Routes.initRoutes();
+  }
+
+  void initDio() async {
+    final List<Interceptor> interceptors = [];
+
+    // cookie拦截
+    interceptors.add(CookieManager(await HttpManager.cookieJar));
+
+    /// 日志拦截(生产模式去除)
+    if (!AppConfig.inProduction) {
+      interceptors.add(LogInterceptor());
+    }
+
+    setInitDio(
+      baseUrl: 'https://api.github.com/',
+      interceptors: interceptors,
+    );
   }
 
   @override

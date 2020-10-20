@@ -1,8 +1,9 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:flutter_demo/common/net/result_data.dart';
 
-class ExceptionHandle {
+class ErrorHandler {
   static const int success = 200;
   static const int success_not_content = 204;
   static const int unauthorized = 401;
@@ -19,19 +20,19 @@ class ExceptionHandle {
   static const int cancel_error = 1007;
   static const int unknown_error = 9999;
 
-  static final Map<int, NetError> _errorMap = <int, NetError>{
-    net_error: NetError(net_error, '网络异常，请检查你的网络！'),
-    parse_error: NetError(parse_error, '数据解析错误！'),
-    socket_error: NetError(socket_error, '网络异常，请检查你的网络！'),
-    http_error: NetError(http_error, '服务器异常，请稍后重试！'),
-    connect_timeout_error: NetError(connect_timeout_error, '连接超时！'),
-    send_timeout_error: NetError(send_timeout_error, '请求超时！'),
-    receive_timeout_error: NetError(receive_timeout_error, '响应超时！'),
-    cancel_error: NetError(cancel_error, '取消请求'),
-    unknown_error: NetError(unknown_error, '未知异常'),
+  static final Map<int, ResultData> _errorMap = <int, ResultData>{
+    net_error: ResultData(net_error, '网络异常，请检查你的网络！'),
+    parse_error: ResultData(parse_error, '数据解析错误！'),
+    socket_error: ResultData(socket_error, '网络异常，请检查你的网络！'),
+    http_error: ResultData(http_error, '服务器异常，请稍后重试！'),
+    connect_timeout_error: ResultData(connect_timeout_error, '连接超时！'),
+    send_timeout_error: ResultData(send_timeout_error, '请求超时！'),
+    receive_timeout_error: ResultData(receive_timeout_error, '响应超时！'),
+    cancel_error: ResultData(cancel_error, '取消请求'),
+    unknown_error: ResultData(unknown_error, '未知异常'),
   };
 
-  static NetError handleException(dynamic error) {
+  static ResultData handleException(dynamic error) {
     print(error);
     if (error is DioError) {
       if (error.type.errorCode == 0) {
@@ -44,7 +45,7 @@ class ExceptionHandle {
     }
   }
 
-  static NetError _handleException(dynamic error) {
+  static ResultData _handleException(dynamic error) {
     int errorCode = unknown_error;
     if (error is SocketException) {
       errorCode = socket_error;
@@ -59,20 +60,13 @@ class ExceptionHandle {
   }
 }
 
-class NetError {
-  int code;
-  String msg;
-
-  NetError(this.code, this.msg);
-}
-
 extension DioErrorTypeExtension on DioErrorType {
   int get errorCode => [
-        ExceptionHandle.connect_timeout_error,
-        ExceptionHandle.send_timeout_error,
-        ExceptionHandle.receive_timeout_error,
+        ErrorHandler.connect_timeout_error,
+        ErrorHandler.send_timeout_error,
+        ErrorHandler.receive_timeout_error,
         0,
-        ExceptionHandle.cancel_error,
+        ErrorHandler.cancel_error,
         0,
       ][index];
 }

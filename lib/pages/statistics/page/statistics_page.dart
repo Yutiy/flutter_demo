@@ -1,31 +1,48 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_demo/bloc/bloc_provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_demo/bloc/count_bloc.dart';
 
-class StatisticsPage extends StatefulWidget {
+class StatisticsPage extends StatelessWidget {
+  const StatisticsPage({Key key}) : super(key: key);
+
   @override
-  _StatisticsPageState createState() => _StatisticsPageState();
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (_) => CounterCubit(),
+      child: CounterView(),
+    );
+  }
 }
 
-class _StatisticsPageState extends State<StatisticsPage> {
+class CounterView extends StatelessWidget {
   Widget build(BuildContext context) {
-    CountBloc _bloc = BlocProvider.of<CountBloc>(context);
-
+    final textTheme = Theme.of(context).textTheme;
     return Scaffold(
-        appBar: AppBar(
-          title: Text("CountBloc"),
+      appBar: AppBar(title: const Text('Counter')),
+      body: Center(
+        child: BlocBuilder<CounterCubit, int>(
+          builder: (context, state) {
+            return Text('$state', style: textTheme.headline2);
+          },
         ),
-        body: StreamBuilder<int>(
-            stream: _bloc.value,
-            initialData: 0,
-            builder: (BuildContext context, AsyncSnapshot<int> snapshot) {
-              return Center(
-                  child: Text('You hit me: ${snapshot.data.toString()} times',
-                      style: TextStyle(fontSize: 40, fontWeight: FontWeight.w300)));
-            }),
-        floatingActionButton: FloatingActionButton(
-          onPressed: _bloc.increment,
-          child: Icon(Icons.add),
-        ));
+      ),
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: <Widget>[
+          FloatingActionButton(
+            key: const Key('counterView_increment_floatingActionButton'),
+            child: const Icon(Icons.add),
+            onPressed: () => context.bloc<CounterCubit>().increment(),
+          ),
+          const SizedBox(height: 8),
+          FloatingActionButton(
+            key: const Key('counterView_decrement_floatingActionButton'),
+            child: const Icon(Icons.remove),
+            onPressed: () => context.bloc<CounterCubit>().decrement(),
+          ),
+        ],
+      ),
+    );
   }
 }

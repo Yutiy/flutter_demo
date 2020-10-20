@@ -27,7 +27,7 @@ class LogInterceptor extends Interceptor {
   Future onResponse(Response response) {
     _endTime = DateTime.now();
     final int duration = _endTime.difference(_startTime).inMilliseconds;
-    if (response.statusCode == ExceptionHandle.success) {
+    if (response.statusCode == ErrorHandler.success) {
       LogUtils.d('ResponseCode: ${response.statusCode}');
     } else {
       LogUtils.e('ResponseCode: ${response.statusCode}');

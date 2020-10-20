@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/widget/my_app_bar.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class WebViewPage extends StatefulWidget {
@@ -38,8 +39,8 @@ class _WebViewPageState extends State<WebViewPage> {
               return Future.value(true);
             },
             child: Scaffold(
-              appBar: AppBar(
-                title: Text("App Name"),
+              appBar: MyAppBar(
+                centerTitle: widget.title,
               ),
               body: WebView(
                 initialUrl: widget.url,

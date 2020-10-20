@@ -11,7 +11,7 @@ class ConnectInterceptor extends Interceptor {
   Future onRequest(RequestOptions options) async {
     var connectivityResult = await (new Connectivity().checkConnectivity());
     if (connectivityResult == ConnectivityResult.none) {
-      return _dio.resolve(new ResultData());
+      return _dio.resolve(new ResultData(11, ''));
     }
 
     return super.onRequest(options);
