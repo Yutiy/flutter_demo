@@ -50,6 +50,7 @@ dependencies:
   keyboard_actions: ^3.3.1
   oktoast: ^2.3.2
   provider: ^4.3.2+2
+  pull_to_refresh: ^1.6.1
   sprintf: ^5.0.0
   sp_util: ^1.0.1
   sticky_headers: ^0.1.8+1
@@ -88,7 +89,13 @@ flutter:
     - assets/images/login/
     - assets/images/store/
     - assets/images/home/
+    - assets/images/order/
+    - assets/images/order/dark/
+    - assets/images/goods/
+    - assets/images/statistic/
     - assets/images/shop/
+    - assets/images/state/
+    - assets/images/account/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
