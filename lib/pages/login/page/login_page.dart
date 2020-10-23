@@ -6,7 +6,6 @@ import 'package:flutter_demo/common/styles/styles.dart';
 import 'package:flutter_demo/localization/app_localizations.dart';
 import 'package:flutter_demo/pages/login/login_router.dart';
 import 'package:flutter_demo/pages/login/widget/my_text_field.dart';
-import 'package:flutter_demo/pages/store/store_router.dart';
 import 'package:flutter_demo/routes/fluro_navigator.dart';
 import 'package:flutter_demo/routes/routes.dart';
 import 'package:flutter_demo/utils/utils.dart';

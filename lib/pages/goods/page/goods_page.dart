@@ -46,6 +46,7 @@ class _GoodsPageState extends State<GoodsPage> with AutomaticKeepAliveClientMixi
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     final Color _iconColor = ThemeUtils.getIconColor(context);
 
     return ChangeNotifierProvider<GoodsPageProvider>(

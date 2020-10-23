@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/common/styles/gaps.dart';
 import 'package:flutter_demo/common/styles/styles.dart';
+import 'package:flutter_demo/pages/account/account_router.dart';
 import 'package:flutter_demo/pages/setting/setting_router.dart';
 import 'package:flutter_demo/routes/fluro_navigator.dart';
 import 'package:flutter_demo/utils/image_utils.dart';
@@ -33,6 +34,7 @@ class _ShopPageState extends State<ShopPage> with AutomaticKeepAliveClientMixin<
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     final Color _iconColor = ThemeUtils.getIconColor(context);
     final Widget line = Container(
       height: 0.6,
@@ -130,7 +132,7 @@ class _ShopPageState extends State<ShopPage> with AutomaticKeepAliveClientMixin<
                 if (index == 0) {
                   // NavigatorUtils.push(context, AccountRouter.accountRecordListPage);
                 } else if (index == 1) {
-                  // NavigatorUtils.push(context, AccountRouter.accountPage);
+                  NavigatorUtils.push(context, AccountRouter.accountPage);
                 } else if (index == 2) {
                   // NavigatorUtils.push(context, AccountRouter.withdrawalAccountPage);
                 }

@@ -10,6 +10,7 @@ import 'package:flutter_demo/routes/fluro_navigator.dart';
 import 'package:flutter_demo/utils/image_utils.dart';
 import 'package:flutter_demo/widget/image_load.dart';
 import 'package:flutter_demo/common/config.dart';
+import 'package:flutter_demo/utils/theme_utils.dart';
 
 class SplashPage extends StatefulWidget {
   @override
@@ -68,7 +69,7 @@ class _SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
-        // color: context.backgroundColor,
+        color: context.backgroundColor,
         child: _status == 0
             ? FractionallyAlignedSizedBox(
                 heightFactor: 0.3,
