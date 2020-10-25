@@ -3,6 +3,7 @@ import 'package:flutter_demo/common/styles/gaps.dart';
 import 'package:flutter_demo/common/styles/styles.dart';
 import 'package:flutter_demo/pages/account/account_router.dart';
 import 'package:flutter_demo/pages/setting/setting_router.dart';
+import 'package:flutter_demo/pages/shop/shop_router.dart';
 import 'package:flutter_demo/routes/fluro_navigator.dart';
 import 'package:flutter_demo/utils/image_utils.dart';
 import 'package:flutter_demo/utils/theme_utils.dart';
@@ -49,7 +50,7 @@ class _ShopPageState extends State<ShopPage> with AutomaticKeepAliveClientMixin<
             IconButton(
               tooltip: '消息',
               onPressed: () {
-                // NavigatorUtils.push(context, ShopRouter.messagePage);
+                NavigatorUtils.push(context, ShopRouter.messagePage);
               },
               icon: LoadAssetImage(
                 'shop/message',
@@ -194,7 +195,8 @@ class _ShopFunctionModule extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              LoadAssetImage(context.isDark ? 'shop/${darkImage[index]}' : 'shop/${image[index]}', width: 32.0),
+              LoadAssetImage(context.isDark ? 'shop/${darkImage[index]}' : 'shop/${image[index]}',
+                  width: 32.0),
               Gaps.vGap4,
               Text(
                 data[index],
